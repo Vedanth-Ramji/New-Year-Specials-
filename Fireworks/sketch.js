@@ -3,7 +3,7 @@ let fireworks = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight - 200);
-    gravity = createVector(0, 0.4);
+    gravity = createVector(0, 0.5);
 }
 
 function draw() {

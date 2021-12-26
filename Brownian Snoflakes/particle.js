@@ -9,8 +9,8 @@ function Particle(x, y) {
     }
 
     this.show = function() {
-        fill('yellow');
-        stroke('yellow');
+        fill(random(255), random(255), random(255));
+        stroke(random(255), random(255), random(255));
         ellipse(this.x, this.y, this.radius * 2);
     }
 
