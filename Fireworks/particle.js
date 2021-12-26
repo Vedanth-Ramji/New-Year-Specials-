@@ -7,7 +7,7 @@ function Particle(x, y, red, green, blue, type) {
     this.type = type;
 
     if (this.type == 'seed') {
-        this.vel = createVector(random(-2, 2), random(-20, -18));
+        this.vel = createVector(random(-2, 2), random(-25, -20));
     } else {
         this.vel = p5.Vector.random2D().mult(random(8) / 2);
         this.lifespan = 255;
@@ -26,10 +26,10 @@ function Particle(x, y, red, green, blue, type) {
 
     this.render = function() {
         if (this.type == 'seed') {
-            strokeWeight(random(4, 6));
+            strokeWeight(6);
             stroke(this.red, this.green, this.blue);
         } else {
-            strokeWeight(random(2, 3));
+            strokeWeight(random(1, 4));
             stroke(this.red, this.green, this.blue, this.lifespan);
         }
 

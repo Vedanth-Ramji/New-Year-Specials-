@@ -2,14 +2,14 @@ let gravity;
 let fireworks = [];
 
 function setup() {
-    createCanvas(windowWidth, windowHeight - 200);
+    createCanvas(windowWidth, windowHeight);
     gravity = createVector(0, 0.5);
 }
 
 function draw() {
     background(0);
 
-    if (random(1) < 0.05) {
+    if (random(1) < 0.08) {
         fireworks.push(new Firework());
     }
 
