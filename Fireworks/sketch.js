@@ -1,15 +1,15 @@
-let fireworks = [];
 let gravity;
+let fireworks = [];
 
 function setup() {
-    createCanvas(windowWidth, windowHeight - 400);
-    gravity = createVector(0, 0.2);
+    createCanvas(windowWidth, windowHeight - 200);
+    gravity = createVector(0, 0.4);
 }
 
 function draw() {
     background(0);
 
-    if (random(1) < 0.1) {
+    if (random(1) < 0.05) {
         fireworks.push(new Firework());
     }
 
@@ -17,9 +17,8 @@ function draw() {
         fireworks[i].update();
         fireworks[i].render();
 
-        if (fireworks[i].firework.exploded) {
-            fireworks.splice(i, 1);
-            console.log(fireworks.length);
+        if (fireworks[i].firework.pos.y > height + 10) {
+            fireworks.splice(i, 1)
         }
     }
 }

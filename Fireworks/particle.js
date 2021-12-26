@@ -1,8 +1,17 @@
-function Particle(x, y, size, vel) {
+function Particle(x, y, red, green, blue, type) {
     this.pos = createVector(x, y);
-    this.vel = vel;
     this.acc = createVector(0, 0);
-    this.size = size;
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    this.type = type;
+
+    if (this.type == 'seed') {
+        this.vel = createVector(random(-2, 2), random(-20, -14));
+    } else {
+        this.vel = p5.Vector.random2D().mult(random(8) / 2);
+        this.lifespan = 255;
+    }
 
     this.applyForce = function(force) {
         this.acc.add(force);
@@ -12,11 +21,18 @@ function Particle(x, y, size, vel) {
         this.vel.add(this.acc);
         this.pos.add(this.vel);
         this.acc.mult(0);
+        this.lifespan -= 2;
     }
 
     this.render = function() {
-        stroke('white');
-        strokeWeight(this.size);
+        if (this.type == 'seed') {
+            strokeWeight(random(4, 6));
+            stroke(this.red, this.green, this.blue);
+        } else {
+            strokeWeight(random(2, 3));
+            stroke(this.red, this.green, this.blue, this.lifespan);
+        }
+
         point(this.pos.x, this.pos.y);
     }
 }
