@@ -7,10 +7,13 @@ function Particle(x, y, red, green, blue, type) {
     this.type = type;
 
     if (this.type == 'seed') {
-        this.vel = createVector(random(-2, 2), random(-25, -20));
+        this.vel = createVector(random(-2, 2), random(-18, -16));
     } else {
-        this.vel = p5.Vector.random2D().mult(random(8) / 2);
+        this.vel = p5.Vector.random2D().mult(random(8) / 4);
         this.lifespan = 255;
+        this.red += random(-10, 10);
+        this.green += random(-10, 10);
+        this.blue += random(-10, 10);
     }
 
     this.applyForce = function(force) {
@@ -21,7 +24,7 @@ function Particle(x, y, red, green, blue, type) {
         this.vel.add(this.acc);
         this.pos.add(this.vel);
         this.acc.mult(0);
-        this.lifespan -= 2;
+        this.lifespan--;
     }
 
     this.render = function() {

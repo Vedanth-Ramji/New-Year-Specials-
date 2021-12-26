@@ -1,8 +1,8 @@
 function Firework() {
-    this.firework = new Particle(random(50, width - 50), height, random(255), random(255), random(255), 'seed');
+    this.firework = new Particle(random(10, width - 10), height, random(255), random(255), random(255), 'seed');
     this.exploded = false;
     this.particles = [];
-    this.numParticles = 100;
+    this.numParticles = floor(random(80, 120));
 
     this.update = function() {
         if (!this.exploded) {
@@ -28,6 +28,10 @@ function Firework() {
     this.explode = function() {
         for (let i = 0; i < this.numParticles; i++) {
             this.particles.push(new Particle(this.firework.pos.x, this.firework.pos.y, this.firework.red, this.firework.green, this.firework.blue, 'nonSeed'));
+        }
+
+        if (random(1) < 0.5) {
+            fireworkBurst1.play();
         }
     }
 

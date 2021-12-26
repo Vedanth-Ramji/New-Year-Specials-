@@ -1,15 +1,23 @@
 let gravity;
 let fireworks = [];
 
+let fireworkBurst1, fireworkBurst2;
+
+function preload() {
+    soundFormats('mp3');
+    fireworkBurst1 = loadSound('./sounds/fireworkBurst1');
+    fireworkBurst2 = loadSound('./sounds/fireworkBurst2');
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    gravity = createVector(0, 0.5);
+    gravity = createVector(0, 0.2);
 }
 
 function draw() {
-    background(0);
+    background(0, 0, 0, 150);
 
-    if (random(1) < 0.08) {
+    if (random(1) < 0.05) {
         fireworks.push(new Firework());
     }
 
