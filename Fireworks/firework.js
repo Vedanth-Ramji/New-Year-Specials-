@@ -29,9 +29,14 @@ function Firework() {
         for (let i = 0; i < this.numParticles; i++) {
             this.particles.push(new Particle(this.firework.pos.x, this.firework.pos.y, this.firework.red, this.firework.green, this.firework.blue, 'nonSeed'));
         }
-
-        if (random(1) < 0.5) {
+    
+        let musicRand = random(1);
+        if (musicRand <= 0.33) {
             fireworkBurst1.play();
+        } else if (musicRand > 0.33 && musicRand < 0.66) {
+            fireworkBurst2.play();
+        } else {
+            fireworkBurst3.play();
         }
     }
 

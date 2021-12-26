@@ -1,12 +1,13 @@
 let gravity;
 let fireworks = [];
 
-let fireworkBurst1, fireworkBurst2;
+let fireworkBurst1, fireworkBurst2, fireworkBurst3;
 
 function preload() {
     soundFormats('mp3');
     fireworkBurst1 = loadSound('./sounds/fireworkBurst1');
     fireworkBurst2 = loadSound('./sounds/fireworkBurst2');
+    fireworkBurst3 = loadSound('./sounds/fireworkBurst3');
 }
 
 function setup() {
